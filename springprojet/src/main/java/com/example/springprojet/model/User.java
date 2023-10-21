@@ -1,7 +1,8 @@
 package com.example.springprojet.model;
 
-import jakarta.persistence.*;
 
+
+import javax.persistence.*;
 import java.net.PasswordAuthentication;
 import java.util.Collection;
 @Entity
@@ -20,6 +21,9 @@ public class User {
             joinColumns = @JoinColumn(
                     name="user_id",referencedColumnName = "id"))
     private Collection<Role> roles;
+    public User(){
+
+    }
 
     public User(String firstname, String lastname, String email, String password, Collection<Role> roles) {
         this.firstname = firstname;

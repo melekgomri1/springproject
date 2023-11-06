@@ -1,7 +1,9 @@
 package com.example.springprojet.controller;
 
+import com.example.springprojet.dto.ProductDTO;
 import com.example.springprojet.model.Category;
 import com.example.springprojet.service.CategoryService;
+import com.example.springprojet.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import java.util.Optional;
 public class AdminController {
     @Autowired
     CategoryService categoryService;
+    @Autowired
+    ProductService productService;
 @GetMapping("/admin/categories")
     public String getCat(Model model){
     model.addAttribute("category",categoryService.getAllCategory());
@@ -46,6 +50,19 @@ categoryService.removecategory(id);
     else
         return "404";
 }
+//Product Section
+@GetMapping("/admin/products")
+public String products(Model model){
+    model.addAttribute("products",productService.getAllProduct());
+    return "product";
+}
+    @GetMapping("/admin/products/add")
+    public String productAdd(Model model){
+        model.addAttribute("productDTO",new ProductDTO());
+        model.addAttribute("categories",categoryService.getAllCategory());
+        return "productAdd";
+    }
+
 
 
 

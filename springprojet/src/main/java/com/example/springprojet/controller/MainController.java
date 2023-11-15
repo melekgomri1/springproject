@@ -25,7 +25,7 @@ public class MainController {
         }
 
         // Si l'utilisateur n'est pas connecté ou ne correspond à aucun rôle, redirigez-le vers la page de connexion
-        return "index";
+        return "shop";
     }
 
     @GetMapping("/login")

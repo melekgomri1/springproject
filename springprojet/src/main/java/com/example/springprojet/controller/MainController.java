@@ -1,9 +1,11 @@
 package com.example.springprojet.controller;
 
 
+import com.example.springprojet.Global.GlobalData;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Collection;
@@ -11,7 +13,9 @@ import java.util.Collection;
 @Controller
 public class MainController {
     @GetMapping("/")
-    public String home(Authentication authentication) {
+    public String home(Authentication authentication,Model model) {
+
+        model.addAttribute("cartCount", GlobalData.cart.size());
         if (authentication != null) {
             // Obtenez la liste des rôles de l'utilisateur authentifié
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();

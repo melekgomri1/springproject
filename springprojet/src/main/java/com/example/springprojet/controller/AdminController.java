@@ -107,6 +107,11 @@ public class AdminController {
         model.addAttribute("job", jobService.getalljob());
         return "job";
     }
+    @GetMapping("/admin/job2")
+    public String jobclient(Model model) {
+        model.addAttribute("job", jobService.getalljob());
+        return "jobclient";
+    }
 
     @GetMapping("/admin/products/add")
     public String productAdd(Model model) {

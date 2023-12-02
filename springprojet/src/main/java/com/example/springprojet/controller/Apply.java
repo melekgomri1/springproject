@@ -1,8 +1,10 @@
 package com.example.springprojet.controller;
 
 import com.example.springprojet.service.ApplyService;
+import com.example.springprojet.service.EmailSenderService;
 import com.example.springprojet.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,8 @@ public class Apply{
     private ApplyService applyService;
     @Autowired
     JobService jobService;
+    @Autowired
+    private EmailSenderService senderService;
 
     @GetMapping("/formjob")
     public String showApplyForm(Model model) {
@@ -55,4 +59,18 @@ public class Apply{
         model.addAttribute("apply", apply);
         return "apply";
     }
+    @GetMapping("/sendEmail/{id}")
+    public String sendEmail(@PathVariable int id,Model model){
+        com.example.springprojet.model.Apply apply=applyService.getapplytbyid(id).get();
+        model.addAttribute("applies", apply);
+        senderService.sendEmail(apply.getEmail(),"Demande de travaille ",
+                "vous etes accepter");
+        return "sendEmail";
+    }
+
+
+
+
+
+
 }

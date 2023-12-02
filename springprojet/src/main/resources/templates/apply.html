@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,16 +9,41 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Document</title>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <div class="container-fluid">
+
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggle-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/admin}" href="#">admin-home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/logout}" href="#">logout</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
 </head>
 <body>
 <!-- apply-form.html -->
-<form th:action="@{/apply/save}" th:object="${apply}" method="post">
 
+<form th:action="@{/apply/save}" th:object="${apply}" method="post">
+    <div class="form-group">
     Name:<input type="text" th:field="*{name}" placeholder="Name"/><br><br>
     Lastname:<input type="text" th:field="*{lastname}" placeholder="Email"/><br><br>
     Email<input type="text" th:field="*{email}" placeholder="Email"/><br><br>
-    CV:<input type="String" th:field="*{cv}" placeholder="Email"/><br><br>
+    Accepted:     <input type="text" th:field="*{accepted}" placeholder="En attente"/><br><br>
+    CV:<input type="file" th:field="*{cv}" placeholder="Email"/><br><br>
     <!-- Autres champs -->
+    </div>
     <button type="submit">Submit</button>
 </form>
 

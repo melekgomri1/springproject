@@ -24,7 +24,7 @@ public class User {
 
     }
 
-    public User(String firstname, String lastname, String email, String password, Collection<Role> roles) {
+    public User(String firstname, String lastame, String email, String password, Collection<Role> roles) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;

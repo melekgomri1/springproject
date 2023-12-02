@@ -3,7 +3,6 @@ package com.example.springprojet.model;
 
 
 import javax.persistence.*;
-import java.net.PasswordAuthentication;
 import java.util.Collection;
 @Entity
 @Table(name = "user",uniqueConstraints = @UniqueConstraint(columnNames="email"))

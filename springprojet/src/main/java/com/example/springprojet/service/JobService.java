@@ -1,9 +1,7 @@
 package com.example.springprojet.service;
 
-import com.example.springprojet.model.Category;
-import com.example.springprojet.model.Categoryjob;
+
 import com.example.springprojet.model.Job;
-import com.example.springprojet.repository.CategoryjobRepository;
 import com.example.springprojet.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -19,7 +19,6 @@ public class MainController {
         if (authentication != null) {
             // Obtenez la liste des rôles de l'utilisateur authentifié
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-
             // Vérifiez les rôles de l'utilisateur et redirigez en conséquence
             if (authorities.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
                 return "admin";

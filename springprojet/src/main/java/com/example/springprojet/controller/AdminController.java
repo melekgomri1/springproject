@@ -122,7 +122,7 @@ public class AdminController {
     @GetMapping("/admin/job/add")
     public String jobAdd(Model model) {
         model.addAttribute("job", new Job());
-        model.addAttribute("categories1", jobService.getalljob());
+        model.addAttribute("categories1", categoryjobService.getallcategoryjob());
         return "job-add";
     }
 
